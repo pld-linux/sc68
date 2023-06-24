@@ -1,0 +1,23 @@
+--- sc68-2.2.1/info/sc68.texi.orig	2003-08-30 03:27:08.000000000 +0200
++++ sc68-2.2.1/info/sc68.texi	2023-06-23 19:36:54.545697007 +0200
+@@ -4,9 +4,9 @@
+ 
+ @setfilename sc68.info
+ @settitle sc68 documentation	@c appear page in header
+-@dircategory Sound
++@dircategory Sound:
+ @direntry
+-* sc68: (sc68).                 Atari ST and Amiga music player
++* sc68: (sc68).				Atari ST and Amiga music player
+ @end direntry
+ @c --- End of Header ---
+ 
+@@ -25,7 +25,7 @@
+ 
+ @titlepage
+ @sp 3
+-@title{sc68 documentation}
++@title sc68 documentation
+ @subtitle version @value{VERSION}, last updated the @value{UPDATED}
+ @author Benjamin Gerard
+ 

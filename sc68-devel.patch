@@ -1,0 +1,41 @@
+--- sc68-2.2.1/sc68.pc.in.orig	2003-09-25 20:26:52.000000000 +0200
++++ sc68-2.2.1/sc68.pc.in	2023-06-24 08:51:33.087400178 +0200
+@@ -15,4 +15,4 @@ Name: sc68
+ Description: Atari-ST / Amiga music player
+ Version: @VERSION@
+ Libs: -L${libdir} @SC68_LDFLAGS@
+-Cflags: -I${pkgincludedir} @CFLAGS@
++Cflags: -I${pkgincludedir} @MY_CFLAGS@
+--- sc68-2.2.1/configure.ac.orig	2023-06-24 08:51:19.260808417 +0200
++++ sc68-2.2.1/configure.ac	2023-06-24 08:55:27.019466193 +0200
+@@ -78,6 +78,7 @@ SUBDIRS68="$SUBDIRS68 data info man"
+ MY_CFLAGS="-DHAVE_CONFIG_CONFIG68_H=1 -DNO_FALLBACK_CONFIG=1"
+ CFLAGS="$CFLAGS $MY_CFLAGS -Wall"
+ CPPFLAGS="$CPPFLAGS $MY_CFLAGS"
++AC_SUBST(MY_CFLAGS)
+ 
+ # Compiler and companions
+ AC_PROG_CC
+--- sc68-2.2.1/sc68-config.in.orig	2003-09-25 20:26:52.000000000 +0200
++++ sc68-2.2.1/sc68-config.in	2023-06-24 08:56:38.935743256 +0200
+@@ -13,17 +13,16 @@ pkgincludedir="${includedir}/sc68"
+ 
+ modversion="@VERSION@"
+ 
+-cflags="@CFLAGS@"
++cflags="@MY_CFLAGS@"
+ iflags="-I${pkgincludedir}"
+ lflags="@SC68_LDFLAGS@"
+ Lflags="-L${libdir}"
+ 
+ RETURN=""
+ 
+-function VersionToNumber
++VersionToNumber
+ {
+-    local n a b c
+-    local ver="$1"
++    ver="$1"
+ 
+     n=`expr "${ver}" : '[0-9]\{1,2\}\.[0-9]\{1,2\}\.[0-9]\{1,2\}$'`
+     if test $n -eq 0; then

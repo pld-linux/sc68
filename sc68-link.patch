@@ -1,0 +1,20 @@
+--- sc68-2.2.1/file68/Makefile.am.orig	2003-09-25 21:56:14.000000000 +0200
++++ sc68-2.2.1/file68/Makefile.am	2023-06-23 21:34:44.127397796 +0200
+@@ -31,6 +31,7 @@ myheaders=\
+ 
+ lib_LTLIBRARIES = libfile68.la
+ libfile68_la_SOURCES = $(mysources) $(myheaders)
++libfile68_la_LIBADD = -lunice68
+ libfile68_la_LDFLAGS = -version-info 2:1:0 -release @VERSION@ @Z_LIB@
+ libfile68_la_CFLAGS = -Wno-multichar -DSC68_SHARED_DATA_PATH='"$(pkgdatadir)"' $(AM_CFLAGS)
+ 
+--- sc68-2.2.1/api68/Makefile.am.orig	2003-09-30 11:00:05.000000000 +0200
++++ sc68-2.2.1/api68/Makefile.am	2023-06-23 22:41:44.528950745 +0200
+@@ -10,6 +10,7 @@ myheaders=\
+ 
+ lib_LTLIBRARIES = libapi68.la
+ libapi68_la_SOURCES = ${mysources} ${myheaders}
++libapi68_la_LIBADD = $(top_builddir)/io68/libio68.la $(top_builddir)/emu68/libemu68.la $(top_builddir)/file68/libfile68.la
+ libapi68_la_LDFLAGS = -version-info 3:1 -release @VERSION@ 
+ 
+ #EXTRA_DIST = api68.vcproj

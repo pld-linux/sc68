@@ -1,0 +1,11 @@
+--- sc68-2.2.1/debug68/sc68debug.c.orig	2003-09-23 09:40:53.000000000 +0200
++++ sc68-2.2.1/debug68/sc68debug.c	2023-06-24 08:49:48.081302379 +0200
+@@ -1200,7 +1200,7 @@ int main(int na, char **a)
+ 
+ static void dcom(command_t *com)
+ {
+-  printf(com->com);
++  fputs(com->com, stdout);
+   if(com->altcom!=NULL) printf(" (%s)",com->altcom);
+   if(com->help  !=NULL) printf(" : %s",com->help);
+   if(com->use   !=NULL) printf("\n  usage: %s %s",com->com,com->use);

@@ -1,0 +1,18 @@
+--- sc68-2.2.1/configure.ac.orig	2023-06-24 08:45:26.669385235 +0200
++++ sc68-2.2.1/configure.ac	2023-06-24 08:51:19.260808417 +0200
+@@ -75,13 +75,8 @@ SUBDIRS68="$SUBDIRS68 as68 sc68 info68 s
+ SUBDIRS68="$SUBDIRS68 data info man"
+ 
+ # C-flags
+-MY_CFLAGS="-DHAVE_CONFIG_CONFIG68_H=1 -DNO_FALLBACK_CONFIG=1"
+-if test "x$enable_debug" = "xyes"; then
+-    MY_CFLAGS="$MY_CFLAGS -Wall -g -O"
+-else
+-    MY_CFLAGS="$MY_CFLAGS -Wall -O3 -fomit-frame-pointer"
+-fi
++MY_CFLAGS="-DHAVE_CONFIG_CONFIG68_H=1 -DNO_FALLBACK_CONFIG=1"
+-CFLAGS="$CFLAGS $MY_CFLAGS"
++CFLAGS="$CFLAGS $MY_CFLAGS -Wall"
+ CPPFLAGS="$CPPFLAGS $MY_CFLAGS"
+ 
+ # Compiler and companions
